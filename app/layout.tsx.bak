@@ -1,0 +1,66 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/Footer";
+import { Providers } from "./providers";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://berrydesign.online"),
+  title: {
+    default: "BerryDesign — Web Design & Development Studio",
+    template: "%s — BerryDesign",
+  },
+  description:
+    "BerryDesign is a design & development studio building fast, SEO-first websites, brands, and digital products.",
+  openGraph: {
+    type: "website",
+    siteName: "BerryDesign",
+    images: [{ url: "/og-default.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@berrydesign",
+  },
+  authors: [{ name: "BerryDesign" }],
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "BerryDesign",
+  url: "https://berrydesign.online",
+  email: "hello@berrydesign.online",
+  description:
+    "A design & development studio crafting fast, beautiful, SEO-first websites. Based in Qatar, working worldwide.",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "QA",
+  },
+  areaServed: "Worldwide",
+  priceRange: "$$",
+  sameAs: [],
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className="dark">
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <Providers>
+          <div className="relative min-h-screen">
+            <Nav />
+            <main className="pt-28">{children}</main>
+            <Footer />
+          </div>
+        </Providers>
+      </body>
+    </html>
+  );
+}

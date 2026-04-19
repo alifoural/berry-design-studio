@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "project": {
+    "name": "berry-design",
+    "base": "production"
+  },
+  "api": {
+    "projectId": "r1uw45l0",
+    "dataset": "production"
+  }
+}
