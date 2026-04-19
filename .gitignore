@@ -43,3 +43,6 @@ next-env.d.ts
 *.sln
 *.sw?
 .sanity/
+
+# Git worktrees
+.worktrees/
