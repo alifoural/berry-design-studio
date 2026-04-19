@@ -1,11 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
 @import "tailwindcss" source(none);
 @source "../app";
 @source "../components";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
 
 @theme inline {
   --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
