@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Menu, X, Sun, Moon, Languages } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Switch } from "@/components/ui/switch";
 
 export function Nav() {
@@ -17,16 +17,14 @@ export function Nav() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  const locale = pathname.startsWith("/ar") ? "ar" : "en";
+  const locale = useLocale();
+  const canonicalPath = pathname.replace(/^\/(en|ar)/, "") || "/";
 
   const toggleLocale = () => {
     if (locale === "ar") {
-      // strip the /ar prefix → English has no prefix
-      window.location.href = pathname.replace(/^\/ar/, "") || "/";
+      window.location.href = canonicalPath;
     } else {
-      // prepend /ar, trim trailing slash so /ar/ doesn't 404
-      const target = `/ar${pathname}`.replace(/\/$/, "") || "/ar";
-      window.location.href = target;
+      window.location.href = `/ar${canonicalPath === "/" ? "" : canonicalPath}`;
     }
   };
 
