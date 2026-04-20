@@ -26,7 +26,7 @@ export default function FinalCTA() {
         <Reveal delay={0.18}>
           <div className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur px-6 py-4 text-white font-semibold text-sm sm:text-base">
             ⏳ 8 of 10 launch slots at QAR 799 are taken. When they&apos;re gone, the
-            price returns to QAR 14,500.
+            price returns to QAR 1,700.
           </div>
         </Reveal>
 

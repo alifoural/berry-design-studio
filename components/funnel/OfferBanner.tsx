@@ -53,10 +53,10 @@ export function OfferBanner() {
                   </motion.div>
                   <div className="flex items-center gap-1 flex-wrap justify-center mt-2">
                     <span className="line-through text-white/40 text-2xl">
-                      QAR 14,500
+                      QAR 1,700
                     </span>
                     <span className="text-green-400 ml-3 text-xl font-semibold">
-                      Save QAR 13,701
+                      Save QAR 901
                     </span>
                   </div>
                 </div>
@@ -136,8 +136,8 @@ export function OfferBanner() {
               {/* Urgency line */}
               <Reveal delay={0.45}>
                 <p className="text-white/60 text-sm font-medium">
-                  This price ends when 10 slots are filled. Current price will
-                  return to QAR 14,500.
+                  This price ends when 10 slots are filled. Price will
+                  return to QAR 1,700.
                 </p>
               </Reveal>
             </div>

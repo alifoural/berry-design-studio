@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: "How much does it cost?",
-    a: "The launch offer is QAR 799 for the full Growth Package — available to the first 10 schools only. After that, packages start at QAR 8,500 (Essentials) and go up to QAR 24,000+ (Authority). Every package includes full copywriting, so you don't need to write anything.",
+    a: "The launch offer is QAR 799 for the full Growth Package — available to the first 10 schools only. After that, packages start at QAR 1,000 (Essentials) and go up to QAR 2,500 (Authority). Every package includes full copywriting, so you don't need to write anything.",
   },
   {
     q: "How long does it take?",
