@@ -20,9 +20,13 @@ export function Nav() {
   const locale = pathname.startsWith("/ar") ? "ar" : "en";
 
   const toggleLocale = () => {
-    const newLocale = locale === "en" ? "ar" : "en";
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
-    window.location.href = newPath === pathname ? `/${newLocale}` : newPath;
+    if (locale === "ar") {
+      // strip the /ar prefix → English has no prefix
+      window.location.href = pathname.replace(/^\/ar/, "") || "/";
+    } else {
+      // prepend /ar → Arabic uses /ar prefix
+      window.location.href = `/ar${pathname}`;
+    }
   };
 
   const links = [
