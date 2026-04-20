@@ -17,7 +17,7 @@ export default function FunnelHero() {
     <>
       {/* Sticky urgency bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-berry text-white text-center text-sm py-2 px-4">
-        🎓 Special Launch Offer: First 10 schools get the full package for QAR 799 — 8 spots remaining
+        🎓 Launch Offer: Full website package for QAR 799 (normally QAR 1,700) — First 10 schools only · 8 spots left
       </div>
 
       {/* Hero section */}
@@ -84,9 +84,33 @@ export default function FunnelHero() {
             competitor instead.
           </motion.p>
 
+          {/* Offer card */}
+          <motion.div
+            custom={0.28}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            className="w-full max-w-lg rounded-2xl border-2 border-violet-500 bg-card/80 backdrop-blur-sm p-6 shadow-glow flex flex-col items-center gap-3"
+          >
+            <p className="text-xs font-bold uppercase tracking-widest text-violet-400">
+              🔥 Launch Offer — First 10 Schools Only
+            </p>
+            <div className="flex items-baseline gap-3">
+              <span className="font-display text-5xl font-bold text-gradient-berry">QAR 799</span>
+              <span className="text-xl text-muted-foreground line-through">QAR 1,700</span>
+            </div>
+            <p className="text-sm text-muted-foreground text-center">
+              Full Growth Package — professional bilingual website, SEO, copywriting & 30-day support.
+            </p>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <span className="inline-flex h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+              8 of 10 spots remaining
+            </div>
+          </motion.div>
+
           {/* CTAs */}
           <motion.div
-            custom={0.3}
+            custom={0.38}
             initial="hidden"
             animate="visible"
             variants={fadeUp}
@@ -94,15 +118,15 @@ export default function FunnelHero() {
           >
             <Link
               href="#audit-form"
-              className="bg-gradient-berry text-white font-semibold rounded-full px-8 py-4 text-base shadow-glow hover:opacity-90 transition-all hover:-translate-y-0.5"
+              className="bg-gradient-berry text-white font-bold rounded-full px-10 py-4 text-base shadow-glow hover:opacity-90 transition-all hover:-translate-y-0.5"
             >
-              Get Your Free Website Audit
+              Claim QAR 799 Offer →
             </Link>
             <Link
               href="#pricing"
               className="glass border border-border font-semibold rounded-full px-8 py-4 text-base hover:shadow-glow transition-all hover:-translate-y-0.5"
             >
-              See Pricing
+              See All Packages
             </Link>
           </motion.div>
 

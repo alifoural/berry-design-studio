@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 const packages = [
   {
     name: "Essentials",
-    price: "QAR 8,500",
+    price: "QAR 1,000",
     badge: "For Nurseries & Small Centres",
     description:
       "A professional, credible online presence that puts you ahead of 90% of nurseries in Qatar.",
@@ -23,7 +23,7 @@ const packages = [
   },
   {
     name: "Growth",
-    price: "QAR 14,500",
+    price: "QAR 1,700",
     badge: "Most Popular",
     description:
       "Built to rank on Google and convert parent visits into booked tours.",
@@ -35,7 +35,7 @@ const packages = [
       "Faculty & gallery pages",
       "Social media setup (2 platforms)",
       "30-day support",
-      "QAR 2,200 in bonuses included",
+      "Bonuses included",
     ],
     tag: "Best for: Schools with 100–400 students",
     highlight: true,
@@ -43,7 +43,7 @@ const packages = [
   },
   {
     name: "Authority",
-    price: "QAR 24,000+",
+    price: "QAR 2,500",
     badge: "Premium",
     description:
       "Your website becomes an institutional asset that signals you belong with Qatar's top schools.",
@@ -175,7 +175,8 @@ export function PricingSection() {
               <div>
                 <p className="font-display text-2xl md:text-3xl font-bold mb-1">
                   🔥 Launch Offer: Get the Growth Package for{" "}
-                  <span className="underline decoration-white/50">QAR 799</span>
+                  <span className="underline decoration-white/50">QAR 799</span>{" "}
+                  <span className="text-white/60 line-through text-xl font-normal">QAR 1,700</span>
                 </p>
                 <p className="text-white/70 text-base">
                   First 10 schools only. 8 spots remaining.
