@@ -5,13 +5,9 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles, Zap, Search, Layers } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { Marquee } from "@/components/site/Marquee";
+import { useTranslations } from "next-intl";
 
-const services = [
-  { icon: Sparkles, title: "Brand & Identity", desc: "Visual systems with personality and rigor." },
-  { icon: Layers, title: "Web Design", desc: "Editorial layouts, motion, and craft." },
-  { icon: Zap, title: "Next.js Development", desc: "Fast, accessible, production-grade." },
-  { icon: Search, title: "SEO & Content", desc: "Get found. Stay found. Convert." },
-];
+const serviceIcons = [Sparkles, Layers, Zap, Search];
 
 const featured = [
   { title: "Lumen Studio", tag: "Brand · Web", color: "from-fuchsia-500 to-purple-600" },
@@ -21,6 +17,17 @@ const featured = [
 ];
 
 export function HomePage() {
+  const t = useTranslations("home");
+
+  const heroWords = [t("heroWord0"), t("heroWord1"), t("heroWord2"), t("heroWord3")];
+
+  const services = [
+    { icon: serviceIcons[0], title: t("service0Title"), desc: t("service0Desc") },
+    { icon: serviceIcons[1], title: t("service1Title"), desc: t("service1Desc") },
+    { icon: serviceIcons[2], title: t("service2Title"), desc: t("service2Desc") },
+    { icon: serviceIcons[3], title: t("service3Title"), desc: t("service3Desc") },
+  ];
+
   return (
     <>
       {/* HERO */}
@@ -33,17 +40,17 @@ export function HomePage() {
             className="mx-auto inline-flex items-center gap-2 rounded-full border border-border glass px-4 py-1.5 text-xs uppercase tracking-widest text-muted-foreground"
           >
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gradient-berry" />
-            Studio · Open for Q3
+            {t("badge")}
           </motion.div>
 
           <h1 className="mt-8 font-display text-5xl font-bold leading-[0.95] md:text-7xl lg:text-8xl">
-            {["We", "design", "websites", "that"].map((w, i) => (
+            {heroWords.map((w, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + i * 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="mr-3 rtl:ml-3 inline-block"
+                className="mr-3 rtl:mr-0 rtl:ml-3 inline-block"
               >
                 {w}
               </motion.span>
@@ -54,7 +61,7 @@ export function HomePage() {
               transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="inline-block text-gradient-berry"
             >
-              get found.
+              {t("heroHighlight")}
             </motion.span>
           </h1>
 
@@ -64,8 +71,7 @@ export function HomePage() {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="mx-auto mt-8 max-w-xl text-base text-muted-foreground md:text-lg"
           >
-            BerryDesign is a small studio for brands that want to look serious
-            on the web — fast, accessible, and built for SEO from the first pixel.
+            {t("heroPara")}
           </motion.p>
 
           <motion.div
@@ -78,14 +84,14 @@ export function HomePage() {
               href="/contact"
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-berry px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
             >
-              Start a project
+              {t("heroCta1")}
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
             </Link>
             <Link
               href="/portfolio"
               className="inline-flex items-center gap-2 rounded-full border border-border glass px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-secondary"
             >
-              View our work
+              {t("heroCta2")}
             </Link>
           </motion.div>
 
@@ -105,17 +111,17 @@ export function HomePage() {
           <Reveal>
             <div className="flex items-end justify-between gap-6">
               <div>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">What we do</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">{t("servicesLabel")}</p>
                 <h2 className="mt-3 font-display text-4xl font-bold md:text-6xl">
-                  Four disciplines.<br />
-                  <span className="text-gradient-berry">One outcome.</span>
+                  {t("servicesHeading")}<br />
+                  <span className="text-gradient-berry">{t("servicesHeadingHighlight")}</span>
                 </h2>
               </div>
               <Link
                 href="/services"
                 className="hidden items-center gap-1 text-sm font-semibold hover:text-gradient-berry md:inline-flex"
               >
-                All services <ArrowUpRight className="h-4 w-4" />
+                {t("servicesLink")} <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
           </Reveal>
@@ -142,9 +148,9 @@ export function HomePage() {
           <Reveal>
             <div className="flex items-end justify-between gap-6">
               <div>
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">Selected work</p>
+                <p className="text-xs uppercase tracking-widest text-muted-foreground">{t("featuredLabel")}</p>
                 <h2 className="mt-3 font-display text-4xl font-bold md:text-6xl">
-                  Recent <span className="text-gradient-berry">case studies</span>
+                  {t("featuredHeading")} <span className="text-gradient-berry">{t("featuredHeadingHighlight")}</span>
                 </h2>
               </div>
             </div>
@@ -186,18 +192,17 @@ export function HomePage() {
             <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-10 text-center md:p-20">
               <div className="pointer-events-none absolute inset-0 bg-gradient-aurora opacity-60" />
               <h2 className="relative font-display text-4xl font-bold md:text-6xl">
-                Have a project <br />
-                <span className="text-gradient-berry">in mind?</span>
+                {t("ctaHeading")} <br />
+                <span className="text-gradient-berry">{t("ctaHeadingHighlight")}</span>
               </h2>
               <p className="relative mx-auto mt-6 max-w-md text-muted-foreground">
-                We take on a small number of projects each quarter. Tell us about
-                yours — we usually reply within 24 hours.
+                {t("ctaPara")}
               </p>
               <Link
                 href="/contact"
                 className="relative mt-10 inline-flex items-center gap-2 rounded-full bg-gradient-berry px-8 py-4 font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105"
               >
-                Let&apos;s talk <ArrowUpRight className="h-4 w-4" />
+                {t("ctaBtn")} <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
           </Reveal>
