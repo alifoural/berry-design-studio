@@ -24,8 +24,9 @@ export function Nav() {
       // strip the /ar prefix → English has no prefix
       window.location.href = pathname.replace(/^\/ar/, "") || "/";
     } else {
-      // prepend /ar → Arabic uses /ar prefix
-      window.location.href = `/ar${pathname}`;
+      // prepend /ar, trim trailing slash so /ar/ doesn't 404
+      const target = `/ar${pathname}`.replace(/\/$/, "") || "/ar";
+      window.location.href = target;
     }
   };
 
