@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "services": "Services",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "startProject": "Start a project"
+  },
+  "footer": {
+    "studio": "Studio",
+    "connect": "Connect",
+    "tagline": "Building fast, SEO-first websites.",
+    "crafted": "Crafted with care",
+    "website": "berrydesign.online",
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "heroHeading": "We build websites that work.",
+    "heroCta": "See our work",
+    "heroSub": "Fast, SEO-first websites for schools and brands in Qatar."
+  },
+  "about": {
+    "title": "About Us"
+  },
+  "services": {
+    "title": "Services"
+  },
+  "blog": {
+    "title": "Blog"
+  },
+  "portfolio": {
+    "title": "Our Work"
+  },
+  "contact": {
+    "title": "Start a Project",
+    "submit": "Send Message"
+  }
+}

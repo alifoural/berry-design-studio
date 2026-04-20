@@ -43,7 +43,7 @@ export function HomePage() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + i * 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="mr-3 inline-block"
+                className="mr-3 rtl:ml-3 inline-block"
               >
                 {w}
               </motion.span>

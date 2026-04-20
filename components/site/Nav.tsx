@@ -3,21 +3,36 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
-
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/portfolio", label: "Work" },
-  { to: "/services", label: "Services" },
-  { to: "/blog", label: "Blog" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
-] as const;
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
+import { Menu, X, Sun, Moon, Languages } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Switch } from "@/components/ui/switch";
 
 export function Nav() {
+  const t = useTranslations("nav");
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const locale = pathname.startsWith("/ar") ? "ar" : "en";
+
+  const toggleLocale = () => {
+    const newLocale = locale === "en" ? "ar" : "en";
+    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
+    window.location.href = newPath === pathname ? `/${newLocale}` : newPath;
+  };
+
+  const links = [
+    { to: "/" as const, label: t("home") },
+    { to: "/portfolio" as const, label: t("work") },
+    { to: "/services" as const, label: t("services") },
+    { to: "/blog" as const, label: t("blog") },
+    { to: "/about" as const, label: t("about") },
+    { to: "/contact" as const, label: t("contact") },
+  ] as const;
 
   return (
     <motion.header
@@ -58,11 +73,27 @@ export function Nav() {
             })}
           </ul>
 
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleLocale}
+              className="flex items-center gap-1 rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <Languages className="h-4 w-4" />
+              <span className="uppercase">{locale}</span>
+            </button>
+            <Sun className="h-4 w-4 text-foreground" />
+            <Switch
+              checked={mounted && theme === "dark"}
+              onCheckedChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+            />
+            <Moon className="h-4 w-4 text-foreground" />
+          </div>
+
           <Link
             href="/contact"
             className="hidden rounded-full bg-gradient-berry px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-105 md:inline-flex"
           >
-            Start a project
+            {t("startProject")}
           </Link>
 
           <button

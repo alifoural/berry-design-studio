@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700;800&display=swap");
 
 @import "tailwindcss" source(none);
 @source "../app";
@@ -10,6 +10,7 @@
 @theme inline {
   --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: "Cairo", ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -43,9 +44,58 @@
   --color-pink: var(--pink);
 }
 
+[dir="rtl"] {
+  --font-sans: var(--font-arabic);
+  --font-display: var(--font-arabic);
+}
+
 :root {
   --radius: 1rem;
 
+  --background: oklch(0.99 0.01 290);
+  --foreground: oklch(0.15 0.02 290);
+
+  --card: oklch(0.98 0.01 290);
+  --card-foreground: oklch(0.15 0.02 290);
+  --popover: oklch(0.98 0.01 290);
+  --popover-foreground: oklch(0.15 0.02 290);
+
+  --primary: oklch(0.55 0.18 290);
+  --primary-foreground: oklch(0.98 0.01 290);
+
+  --secondary: oklch(0.92 0.02 290);
+  --secondary-foreground: oklch(0.15 0.02 290);
+
+  --muted: oklch(0.92 0.02 290);
+  --muted-foreground: oklch(0.55 0.02 290);
+
+  --accent: oklch(0.55 0.18 290);
+  --accent-foreground: oklch(0.98 0.01 290);
+
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0.01 290);
+
+  --border: oklch(0.88 0.02 290 / 60%);
+  --input: oklch(0.88 0.02 290);
+  --ring: oklch(0.55 0.18 290);
+
+  --berry: oklch(0.55 0.18 290);
+  --berry-glow: oklch(0.65 0.15 290);
+  --pink: oklch(0.6 0.22 25);
+
+  --gradient-berry: linear-gradient(135deg, oklch(0.55 0.18 290), oklch(0.6 0.22 25));
+  --gradient-aurora: radial-gradient(
+      ellipse at top,
+      oklch(0.55 0.18 290 / 20%),
+      transparent 60%
+    ),
+    radial-gradient(ellipse at bottom right, oklch(0.6 0.22 25 / 15%), transparent 55%);
+
+  --shadow-glow: 0 20px 60px -20px oklch(0.55 0.18 290 / 30%);
+  --shadow-pink: 0 20px 60px -20px oklch(0.6 0.22 25 / 25%);
+}
+
+.dark {
   --background: oklch(0.13 0.03 310);
   --foreground: oklch(0.97 0.01 310);
 
@@ -87,10 +137,6 @@
 
   --shadow-glow: 0 20px 60px -20px oklch(0.7 0.21 305 / 50%);
   --shadow-pink: 0 20px 60px -20px oklch(0.72 0.24 0 / 45%);
-}
-
-.dark {
-  /* same — site is dark by default */
 }
 
 @layer base {
@@ -143,11 +189,15 @@
     box-shadow: var(--shadow-pink);
   }
 
-  .glass {
-    background: oklch(0.17 0.04 310 / 60%);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
+.glass {
+  background: oklch(1 0.0 290 / 70%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .glass {
+  background: oklch(0.17 0.04 310 / 60%);
+}
 
   .noise::before {
     content: "";
