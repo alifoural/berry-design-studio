@@ -36,15 +36,28 @@ export default async function ContactPage({ params }: Props) {
 
           <div className="mt-12 space-y-4">
             <a
-              href="mailto:hello@berrydesign.online"
+              href="mailto:sales@berrydesign.online"
               className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-4 transition-colors hover:border-berry"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-berry text-primary-foreground">
                 <Mail className="h-4 w-4" />
               </div>
               <div className="flex-1">
-                <div className="text-xs uppercase tracking-widest text-muted-foreground">Email</div>
-                <div className="text-sm font-medium">hello@berrydesign.online</div>
+                <div className="text-xs uppercase tracking-widest text-muted-foreground">Sales</div>
+                <div className="text-sm font-medium">sales@berrydesign.online</div>
+              </div>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
+            </a>
+            <a
+              href="mailto:support@berrydesign.online"
+              className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-4 transition-colors hover:border-berry"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-berry text-primary-foreground">
+                <Mail className="h-4 w-4" />
+              </div>
+              <div className="flex-1">
+                <div className="text-xs uppercase tracking-widest text-muted-foreground">Support</div>
+                <div className="text-sm font-medium">support@berrydesign.online</div>
               </div>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
             </a>

@@ -38,8 +38,13 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/contact" className="hover:text-gradient-berry">{nav("contact")}</Link></li>
               <li>
-                <a href="mailto:hello@berrydesign.online" className="hover:text-gradient-berry">
-                  hello@berrydesign.online
+                <a href="mailto:sales@berrydesign.online" className="hover:text-gradient-berry">
+                  sales@berrydesign.online
+                </a>
+              </li>
+              <li>
+                <a href="mailto:support@berrydesign.online" className="hover:text-gradient-berry">
+                  support@berrydesign.online
                 </a>
               </li>
               <li><a href="#" className="hover:text-gradient-berry">LinkedIn</a></li>

@@ -42,8 +42,8 @@ export default async function SchoolsPage({ params }: Props) {
       <footer className="border-t border-border px-4 py-8 text-center text-xs text-muted-foreground">
         <p>
           © {new Date().getFullYear()} Berry Design Studio · Qatar ·{' '}
-          <a href="mailto:hello@berrydesign.online" className="hover:underline">
-            hello@berrydesign.online
+          <a href="mailto:sales@berrydesign.online" className="hover:underline">
+            sales@berrydesign.online
           </a>
         </p>
       </footer>
