@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Nav } from '@/components/site/Nav';
 import { Footer } from '@/components/site/Footer';
@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   description: 'BerryDesign builds fast, SEO-first websites.',
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 type Props = {
   children: ReactNode;
   params: Promise<{ locale: string }>;
@@ -31,6 +35,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
 
+  setRequestLocale(locale);
   const messages = await getMessages();
   const isRTL = locale === 'ar';
 

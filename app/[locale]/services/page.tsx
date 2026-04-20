@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from 'next-intl/server';
 import Link from "next/link";
 import { ArrowUpRight, Sparkles, Layers, Zap, Search } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
@@ -43,7 +44,11 @@ const services = [
   },
 ];
 
-export default function ServicesPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function ServicesPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <section className="px-4 py-16">
       <div className="mx-auto max-w-6xl">

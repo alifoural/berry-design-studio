@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from 'next-intl/server';
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { ContactForm } from "@/components/site/ContactForm";
@@ -15,7 +16,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://berrydesign.online/contact" },
 };
 
-export default function ContactPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function ContactPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <section className="px-4 py-16">
       <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-2">

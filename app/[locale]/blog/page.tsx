@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from 'next-intl/server';
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
@@ -41,7 +42,13 @@ const staticPosts = [
   },
 ];
 
-export default async function BlogPage() {
+export const revalidate = 3600;
+
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function BlogPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   let posts: Array<{ slug: string; title: string; excerpt?: string; date?: string; publishedAt?: string; tag?: string; tags?: string[] }>;
 
   try {

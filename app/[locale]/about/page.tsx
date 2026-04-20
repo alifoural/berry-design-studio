@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from 'next-intl/server';
 import { Reveal } from "@/components/site/Reveal";
 
 export const metadata: Metadata = {
@@ -29,7 +30,11 @@ const values = [
   },
 ];
 
-export default function AboutPage() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function AboutPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <section className="px-4 py-16">
       <div className="mx-auto max-w-4xl">
