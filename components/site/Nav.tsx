@@ -29,6 +29,7 @@ export function Nav() {
     { to: "/" as const, label: t("home") },
     { to: "/portfolio" as const, label: t("work") },
     { to: "/services" as const, label: t("services") },
+    { to: "/schools" as const, label: "Schools 🎓" },
     { to: "/blog" as const, label: t("blog") },
     { to: "/about" as const, label: t("about") },
     { to: "/contact" as const, label: t("contact") },
