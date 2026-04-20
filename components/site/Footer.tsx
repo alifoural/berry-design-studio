@@ -47,8 +47,7 @@ export function Footer() {
                   support@berrydesign.online
                 </a>
               </li>
-              <li><a href="#" className="hover:text-gradient-berry">LinkedIn</a></li>
-              <li><a href="#" className="hover:text-gradient-berry">Dribbble</a></li>
+
             </ul>
           </div>
         </div>
