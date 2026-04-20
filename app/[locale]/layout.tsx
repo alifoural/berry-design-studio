@@ -7,6 +7,7 @@ import { routing } from '@/i18n/routing';
 import { Nav } from '@/components/site/Nav';
 import { Footer } from '@/components/site/Footer';
 import { Providers } from '../providers';
+import { Analytics } from '@vercel/analytics/next';
 import '../globals.css';
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             </div>
           </Providers>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
