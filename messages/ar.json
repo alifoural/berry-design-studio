@@ -148,6 +148,23 @@
   },
   "contact": {
     "title": "ابدأ مشروعاً",
-    "submit": "إرسال الرسالة"
+    "label": "تواصل معنا",
+    "heading": "لنتحدث",
+    "headingHighlight": "معاً.",
+    "intro": "أخبرنا قليلاً عن مشروعك وجدولك الزمني وميزانيتك. نرد في الغالب خلال ٢٤ ساعة.",
+    "salesLabel": "المبيعات",
+    "salesEmail": "sales@berrydesign.online",
+    "supportLabel": "الدعم",
+    "supportEmail": "support@berrydesign.online",
+    "studioLabel": "الاستوديو",
+    "studioLocation": "عن بُعد · نعمل مع عملاء حول العالم",
+    "formName": "الاسم",
+    "formEmail": "البريد الإلكتروني",
+    "formCompany": "الشركة / المؤسسة",
+    "formDetails": "تفاصيل المشروع",
+    "formPlaceholder": "ما الذي تبنيه، ومتى تحتاجه؟",
+    "submit": "إرسال الرسالة",
+    "sentHeading": "تم إرسال رسالتك",
+    "sentPara": "شكراً — وصلتنا رسالتك. توقع ردنا خلال ٢٤ ساعة."
   }
 }

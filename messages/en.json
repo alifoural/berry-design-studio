@@ -148,6 +148,23 @@
   },
   "contact": {
     "title": "Start a Project",
-    "submit": "Send Message"
+    "label": "Contact",
+    "heading": "Let's",
+    "headingHighlight": "talk.",
+    "intro": "Tell us a bit about your project, your timeline, and your budget. We usually reply within 24 hours.",
+    "salesLabel": "Sales",
+    "salesEmail": "sales@berrydesign.online",
+    "supportLabel": "Support",
+    "supportEmail": "support@berrydesign.online",
+    "studioLabel": "Studio",
+    "studioLocation": "Remote · Working worldwide",
+    "formName": "Name",
+    "formEmail": "Email",
+    "formCompany": "Company",
+    "formDetails": "Project details",
+    "formPlaceholder": "What are you building, and when do you need it?",
+    "submit": "Send message",
+    "sentHeading": "Message sent",
+    "sentPara": "Thanks — we got it. Expect a reply within 24 hours."
   }
 }

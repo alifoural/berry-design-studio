@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { ContactForm } from "@/components/site/ContactForm";
@@ -21,43 +21,42 @@ type Props = { params: Promise<{ locale: string }> };
 export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("contact");
+
   return (
     <section className="px-4 py-16">
       <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-2">
         <Reveal>
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">Contact</p>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">{t("label")}</p>
           <h1 className="mt-3 font-display text-5xl font-bold md:text-7xl">
-            Let&apos;s <span className="text-gradient-berry">talk</span>.
+            {t("heading")} <span className="text-gradient-berry">{t("headingHighlight")}</span>
           </h1>
-          <p className="mt-6 max-w-md text-muted-foreground">
-            Tell us a bit about your project, your timeline, and your budget.
-            We usually reply within 24 hours.
-          </p>
+          <p className="mt-6 max-w-md text-muted-foreground">{t("intro")}</p>
 
           <div className="mt-12 space-y-4">
             <a
-              href="mailto:sales@berrydesign.online"
+              href={`mailto:${t("salesEmail")}`}
               className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-4 transition-colors hover:border-berry"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-berry text-primary-foreground">
                 <Mail className="h-4 w-4" />
               </div>
               <div className="flex-1">
-                <div className="text-xs uppercase tracking-widest text-muted-foreground">Sales</div>
-                <div className="text-sm font-medium">sales@berrydesign.online</div>
+                <div className="text-xs uppercase tracking-widest text-muted-foreground">{t("salesLabel")}</div>
+                <div className="text-sm font-medium">{t("salesEmail")}</div>
               </div>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
             </a>
             <a
-              href="mailto:support@berrydesign.online"
+              href={`mailto:${t("supportEmail")}`}
               className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-4 transition-colors hover:border-berry"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-berry text-primary-foreground">
                 <Mail className="h-4 w-4" />
               </div>
               <div className="flex-1">
-                <div className="text-xs uppercase tracking-widest text-muted-foreground">Support</div>
-                <div className="text-sm font-medium">support@berrydesign.online</div>
+                <div className="text-xs uppercase tracking-widest text-muted-foreground">{t("supportLabel")}</div>
+                <div className="text-sm font-medium">{t("supportEmail")}</div>
               </div>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
             </a>
@@ -66,8 +65,8 @@ export default async function ContactPage({ params }: Props) {
                 <MapPin className="h-4 w-4" />
               </div>
               <div>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground">Studio</div>
-                <div className="text-sm font-medium">Remote · Working worldwide</div>
+                <div className="text-xs uppercase tracking-widest text-muted-foreground">{t("studioLabel")}</div>
+                <div className="text-sm font-medium">{t("studioLocation")}</div>
               </div>
             </div>
           </div>
