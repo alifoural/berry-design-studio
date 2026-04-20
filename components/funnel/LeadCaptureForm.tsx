@@ -30,7 +30,7 @@ export default function LeadCaptureForm() {
     const message =
       `Hi Berry Design Studio, I'd like a free website audit for ${data.schoolName} (${data.role}). WhatsApp: ${data.phone}`;
 
-    const waUrl = `https://wa.me/97430000000?text=${encodeURIComponent(message)}`;
+    const waUrl = `https://wa.me/97431490766?text=${encodeURIComponent(message)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
     setSubmitted(true);
   };

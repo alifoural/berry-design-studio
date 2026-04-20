@@ -40,7 +40,7 @@ export default function FinalCTA() {
               Book Your Free Website Audit
             </Link>
             <Link
-              href="https://wa.me/97430000000"
+              href="https://wa.me/97431490766"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-white/40 text-white rounded-full px-10 py-5 text-base hover:bg-white/10 hover:-translate-y-0.5 transition-all"
